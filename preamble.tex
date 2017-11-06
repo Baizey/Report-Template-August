@@ -27,12 +27,36 @@
         tikz,                                   % Graphs and more
         pgfkeys,                                % Arrays
         forloop,                                % For loops
-        etoolbox                                % If statements
+        etoolbox,                               % If statements
+        forest                                  % tableau trees
     }
 
 %%--------------------%%
 %%  PACKAGE SETTINGS  %%
 %%--------------------%%
+
+	
+    % quick styling for tableaus using forest
+	
+    \forestset{
+      tableaux/.style={
+        for tree={
+          math content
+        },
+        where n children=1{
+          !1.before computing xy={l=\baselineskip},
+          !1.no edge
+        }{},
+        closed/.style={
+          label=below:$\times$
+        },
+        open/.style={
+          label=below:$\circ$
+        },
+        parent anchor=south,
+        child anchor=north,
+      },
+    }
 
     % No indentation for entire document
         \setlength\parindent{0pt}
