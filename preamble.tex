@@ -187,3 +187,15 @@
 \pgfkeys{/authorid array, \arabic{authorCount} = #2}\stepcounter{authorCount}}
 \newcommand\getAuthorName[1]{\pgfkeysvalueof{/authorname array/#1}}
 \newcommand\getAuthorID[1]{\pgfkeysvalueof{/authorid array/#1}}
+
+
+% Making life better
+% Simple image fitting page
+\newcommand\image[1]{\includegraphics[width=\textwidth]{#1}}
+
+% Inserting code
+\newcommand\code[2]{
+    \begin{mdframed}[backgroundcolor=bg]
+    \inputminted{#1}{#2}
+    \end{mdframed}
+}
